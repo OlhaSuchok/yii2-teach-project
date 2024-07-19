@@ -6,8 +6,17 @@ use yii\web\Controller;
 
 class MyController extends Controller
 {
-    public function actionIndex()
+//    Отримання id з адресного рядка. За замовчуванням ставимо null
+    public function actionIndex($id = null)
     {
-        return $this->render('index');
+// Тепер змінна доступа у нашому шаблоні - index
+        $hi = 'Hello, world!';
+        $names = ['John', 'Doe', 'Lilly', 'Jenny', 'Robby'];
+
+        if (!$id) $id = 'test123';
+
+// return $this->render('index', ['hello' => $hi, 'names' => $names]);
+// Ще один спосіб передачі даннних
+        return $this->render('index', compact('hi', 'names', 'id'));
     }
 }
