@@ -16,10 +16,3 @@ class AppController extends Controller
         echo '<pre>' . print_r($arr, true) . '</pre>';
     }
 }
-
-// Ця функція буде доступна у Виді
-function debug($arr)
-{
-    // print_r - метод для розпаковки масиву
-    echo '<pre>' . print_r($arr, true) . '</pre>';
-}

@@ -9,4 +9,8 @@ require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 
 $config = require __DIR__ . '/../config/web.php';
 
+// Підключення бібліотеки функцій
+// __DIR__ - поточне розміщення файлу index.php
+require __DIR__ . '/../functions.php';
+
 (new yii\web\Application($config))->run();
