@@ -7,6 +7,26 @@ use Yii;
 
 class PostController extends AppController
 {
+    /* Для усіх сторінок контроллеру Post буде використовуватися шаблон basic, а для всих інших контроллерів - шаблон main.
+       Для цього необхідно написати наступний рядок.
+    */
+    // public $layout = 'basic';
+
+    // Екшн для виводу усіх постів
+    public function actionIndex()
+    {
+        return $this->render('index');
+    }
+
+    // Екшн для виводу конкретних постів
+    public function actionShow()
+    {
+        // Якщо ми хочемо встановити окремий шаблон для конкретного екшину, використовується наступний запис
+        $this->layout = 'basic';
+
+        return $this->render('show');
+    }
+
     public function actionTest()
     {
 

@@ -7,6 +7,13 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    /*
+    Підключення нового шаблону basic файлом /views/layout/basic.php
+    Даний спосіб є глобальним, він повністю перекриє шаблон main.php
+    'layout' => 'basic',
+    Для того, щоб підключити шаблон, який буде відображатися для відповідного конроллера,
+    для цього ми повинні використовувати властивість layout в контроллері
+    */
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',

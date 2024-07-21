@@ -19,11 +19,20 @@ class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
+    // Файли підключаються з папки web/css
     public $css = [
         'css/site.css',
+//        'css/style.css',
     ];
     public $js = [
+//        'js/scripts.js',
     ];
+    /*
+    Якщо підключення файлів скриптів залежить від підключень якихось інших скриптів, бібліотек, то
+    ми можемо у властивості $depends вказати, від чого залежать наші скрипти.
+    Це забезпечує підключення файлів скриптів лише після підключення скрипту, від якого залежать інші файли скриптів.
+    Якщо скрипт залежить від бібліотеки jQuery, то Yii прослідкує, щоб цей файл був підключений перед залежним скриптом.
+    */
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap5\BootstrapAsset'
