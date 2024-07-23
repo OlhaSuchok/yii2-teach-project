@@ -27,6 +27,7 @@ class AppAsset extends AssetBundle
     public $js = [
 //        'js/scripts.js',
     ];
+    public $jsOptions = ['position' => \yii\web\View::POS_END];
     /*
     Якщо підключення файлів скриптів залежить від підключень якихось інших скриптів, бібліотек, то
     ми можемо у властивості $depends вказати, від чого залежать наші скрипти.
@@ -34,6 +35,7 @@ class AppAsset extends AssetBundle
     Якщо скрипт залежить від бібліотеки jQuery, то Yii прослідкує, щоб цей файл був підключений перед залежним скриптом.
     */
     public $depends = [
+        // Тут підключається бібліотека jQuery
         'yii\web\YiiAsset',
         'yii\bootstrap5\BootstrapAsset'
     ];

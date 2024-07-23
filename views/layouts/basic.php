@@ -1,6 +1,7 @@
 <?php
 // Підключення необхідне для доступу до файлів стилів та скриптів, підключених у AppAsset.
 use app\assets\AppAsset;
+use yii\helpers\Html;
 
 // Виклик методу register для реєстрації об'єкту this, щоб ми могли використовувати його у шаблоні та виді.
 AppAsset::register($this);
@@ -19,14 +20,28 @@ AppAsset::register($this);
         <title>Document</title>
         <?php $this->head() ?>
     </head>
-    <body>
+    <body class="d-flex flex-column h-100">
     <?php $this->beginBody() ?>
-    <h1>Hello, basic!</h1>
-<!-- Види - це динамічна, контентна частина,яка змінюється на сторінці та підключається до шаблону.-->
-<!-- Для виводу контентної частини необхідно вивести змінну content, у якій зберігається контент сторінки.-->
-<!-- Необхідно для виводу змісту екшенів-->
-    <?= $content ?>
-    <?php $this->endBody() ?>
+    <main id="main" class="flex-shrink-0" role="main">
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li class="nav-item" style="background-color: #a2e1fb; border-radius: 5px; padding: 10px 20px; margin-right: 12px;">
+                   <?= Html::a('Home', '/web') ?>
+                </li>
+                <li class="nav-item" style="background-color: #a2e1fb; border-radius: 5px; padding: 10px 20px; margin-right: 12px;">
+                    <?= Html::a('Posts', ['post/index']) ?>
+                </li>
+                <li class="nav-item" style="background-color: #a2e1fb; border-radius: 5px; padding: 10px 20px;">
+                    <?= Html::a('Post', ['post/show']) ?>
+                </li>
+            </ul>
+            <!-- Види - це динамічна, контентна частина,яка змінюється на сторінці та підключається до шаблону.-->
+            <!-- Для виводу контентної частини необхідно вивести змінну content, у якій зберігається контент сторінки.-->
+            <!-- Необхідно для виводу змісту екшенів-->
+            <?= $content ?>
+        </div>
+        <?php $this->endBody() ?>
+    </main>
     </body>
     </html>
 <?php $this->endPage() ?>

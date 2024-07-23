@@ -1,1 +1,1 @@
-<?php
+<h1>Index Action / Content basic</h1>
