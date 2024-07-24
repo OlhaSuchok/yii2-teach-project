@@ -4,6 +4,7 @@ namespace app\controllers;
 
 // Імпорт глобального об'єкту Yii
 use Yii;
+use app\models\TestForm;
 
 class PostController extends AppController
 {
@@ -37,7 +38,11 @@ class PostController extends AppController
             debug(Yii::$app->request->post());
             return 'test';
         }
-        return $this->render('index');
+
+        // Створення обєкту моделі
+        $model = new TestForm();
+        // Передача даних у вид
+        return $this->render('index', compact('model'));
     }
 
     // Екшн для виводу конкретних постів
