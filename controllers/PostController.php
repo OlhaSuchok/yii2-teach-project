@@ -7,6 +7,17 @@ use Yii;
 
 class PostController extends AppController
 {
+// Функція відключення перевірки спеціального токену Html::csrfMetaTags()
+    public function beforeAction($action)
+    {
+//        debug($action);
+
+        if ($action->id == 'index') {
+            $this->enableCsrfValidation = false;
+        }
+        // Повертаємо відпрацювання батьківського методу
+        return parent::beforeAction($action);
+    }
 
     /* Для усіх сторінок контроллеру Post буде використовуватися шаблон basic, а для всих інших контроллерів - шаблон main.
    Для цього необхідно написати наступний рядок.
@@ -21,7 +32,9 @@ class PostController extends AppController
 
         // Перевіряємо, чи прийшли дані методом ajax. Якщо так, то просто повертаємо рядок
         if (Yii::$app->request->isAjax) {
-            debug($_GET);
+//            debug($_POST);
+//            Також у Yii є спеціальний метод для розпаковки запитів. Його ми можемо використовувати як альтернативу debug
+            debug(Yii::$app->request->post());
             return 'test';
         }
         return $this->render('index');
@@ -30,7 +43,12 @@ class PostController extends AppController
     // Екшн для виводу конкретних постів
     public function actionShow()
     {
+//        Варіант визначення заголовку сторінки у екшені
+        $this->view->title = 'Якась стаття';
+        // Формування мета-тегів та заповнення їх даними
 
+        $this->view->registerMetaTag(['name' => 'keywords', 'content' => 'якийсь контент...']);
+        $this->view->registerMetaTag(['name' => 'description', 'content' => 'опис сторінки...']);
         return $this->render('show');
     }
 

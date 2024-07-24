@@ -1,5 +1,13 @@
-<h1>Show Action / Content basic</h1>
+<!--Варіант визначення заголовку сторінки у виді-->
+<?php //$this->title = 'Одна стаття'; ?>
 
+<!--Метод для передачі даних із виду у шаблон. Виводимо у шаблоні-->
+<?php $this->beginBlock('block1'); ?>
+<!--Тут вміст блоку-->
+<h3>Заголовок сторінки всередині блоку</h3>
+<?php $this->endBlock(); ?>
+
+<h1>Show Action / Content basic</h1>
 
 <button class="btn btn-success" id="btn">Click me...</button>
 
@@ -17,7 +25,7 @@
 //?>
 
 <!--Руєстрація блоку коду зі стилями. За замовчуванням підключається перед закриваючим тегом head-->
-<?php $this->registerCss(".container {background: #ccc;} ")?>
+<?php $this->registerCss(".container {background: #ccc;} ") ?>
 
 
 <!--Хередок (heredoc) в PHP - це спосіб визначення строкових літералів, -->
@@ -32,7 +40,7 @@ $("#btn").click(function(){
     $.ajax({
     url: 'index.php?r=post/index',
     data: {test: 123},
-    type: 'GET',
+    type: 'POST',
     success: function (res) {
         console.log(res);
     },
