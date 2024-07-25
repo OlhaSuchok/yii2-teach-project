@@ -7,6 +7,8 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    // Зміна мови додатку. ua не підтримує :(
+'language' => 'ua',
     /*
     Підключення нового шаблону basic файлом /views/layout/basic.php
     Даний спосіб є глобальним, він повністю перекриє шаблон main.php

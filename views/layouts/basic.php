@@ -9,7 +9,8 @@ AppAsset::register($this);
     <!--Щоб шаблон працював коректно, необхідно додати мітки по типу  $this->beginBody()-->
 <?php $this->beginPage() ?>
     <!doctype html>
-    <html lang="en">
+<!--Визначення мови додатку у файлі config/web.php -->
+    <html lang="<?= Yii::$app->language ?>">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
