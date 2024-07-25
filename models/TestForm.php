@@ -36,21 +36,24 @@ class TestForm extends Model
             // Валідація email
             ['email', 'email', 'message' => "Поле повинно бути поштовою адресою."],
             // Мінімальна кількість символів. Чомусь не виводиться повідомлення
-            ['name', 'string', 'min' => 2, 'max' => 7, 'tooShort' => 'Поле повинно містити щонайменше 2 символи.', 'tooLong' => 'Поле повинно містити не більше 7 символів.'],
+//            ['name', 'string', 'min' => 2, 'max' => 7, 'tooShort' => 'Поле повинно містити щонайменше 2 символи.', 'tooLong' => 'Поле повинно містити не більше 7 символів.'],
             ['name', 'string', 'length' => [2, 7]],
             // Власне правило для валідації поля name
-            ['name', 'myValidateRule'],
+//            ['name', 'myRule'],
+            ['name', 'myRule', 'skipOnError' => true],
             ['text', 'trim'],
+            // Робить поле безпечним для отримання даних від користувача на сервері
+//            ['text', 'safe']
 
         ];
 
     }
 
     // Не всі валідатори спрацьовують на клієнті, тільки на сервері
-    public function myValidateRule($attrs)
+    public function myRule($attr)
     {
-        if (!in_array($this->$attrs, ['hello', 'world'])) {
-            $this->addErrors($attrs, 'Щось пішло не так.');
+        if (!in_array($this->$attr, ['hello', 'world'])) {
+            $this->addError($attr, 'Щось пішло не так.');
         }
     }
 

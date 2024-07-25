@@ -37,6 +37,9 @@ class AppAsset extends AssetBundle
     public $depends = [
         // Тут підключається бібліотека jQuery
         'yii\web\YiiAsset',
-        'yii\bootstrap5\BootstrapAsset'
+        // Підключення стилів bootstrap
+//        'yii\bootstrap5\BootstrapAsset',
+        // Підключення стилів та скриптів bootstrap
+        'yii\bootstrap5\BootstrapPluginAsset'
     ];
 }
