@@ -5,6 +5,7 @@ namespace app\controllers;
 // Імпорт глобального об'єкту Yii
 use Yii;
 use app\models\TestForm;
+use app\models\Post;
 
 class PostController extends AppController
 {
@@ -80,13 +81,25 @@ class PostController extends AppController
 
         $this->view->registerMetaTag(['name' => 'keywords', 'content' => 'якийсь контент...']);
         $this->view->registerMetaTag(['name' => 'description', 'content' => 'опис сторінки...']);
-        return $this->render('show');
+
+        // Отримання даних з бази даних
+//       Аналог sql запиту SELECT * FROM post;
+        $posts = Post::find()->all();
+
+//        return $this->render('index', [
+//            'posts' => $posts,
+//        ]);
+
+        // Передаємо записи у вид для відображення
+        return $this->render('show', compact('posts'));
+
+//        return $this->render('show');
     }
 
     public function actionTest()
     {
 
-        $names = ['John', 'Doe', 'Lilly', 'Jenny', 'Robby'];
+//        $names = ['John', 'Doe', 'Lilly', 'Jenny', 'Robby'];
 
         // Функції для виводу масивів
         // print_r($names); // Array ( [0] => John [1] => Doe [2] => Lilly [3] => Jenny [4] => Robby )
@@ -102,6 +115,7 @@ class PostController extends AppController
 
         // Передача масиву $names другим параметром, для отримання доступу у файлі test.php
         // return $this->render('test', ['names' => $names]);
-        return $this->render('test');
+//        return $this->render('test');
+
     }
 }

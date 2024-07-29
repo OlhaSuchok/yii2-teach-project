@@ -1,13 +1,22 @@
+<h1>Show Action / Вивід даних із бази даних</h1>
+
 <!--Варіант визначення заголовку сторінки у виді-->
 <?php //$this->title = 'Одна стаття'; ?>
 
-<!--Метод для передачі даних із виду у шаблон. Виводимо у шаблоні-->
-<?php $this->beginBlock('block1'); ?>
-<!--Тут вміст блоку-->
-<h3>Заголовок сторінки всередині блоку</h3>
-<?php $this->endBlock(); ?>
+<!--Вивід даних із бази даних-->
+<?php //debug($posts); ?>
 
-<h1>Show Action / Content basic</h1>
+<?php foreach ($posts as $post): ?>
+    <h2><?= $post->title ?></h2>
+    <p><?= $post->content ?></p>
+<?php endforeach; ?>
+
+<!--Метод для передачі даних із виду у шаблон. Виводимо у шаблоні-->
+<?php //$this->beginBlock('block1'); ?>
+<!--Тут вміст блоку-->
+<!--<h3>Заголовок сторінки всередині блоку</h3>-->
+<?php //$this->endBlock(); ?>
+
 
 <button class="btn btn-success" id="btn">Click me...</button>
 
