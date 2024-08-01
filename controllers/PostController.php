@@ -82,17 +82,53 @@ class PostController extends AppController
         $this->view->registerMetaTag(['name' => 'keywords', 'content' => 'якийсь контент...']);
         $this->view->registerMetaTag(['name' => 'description', 'content' => 'опис сторінки...']);
 
-        // Отримання даних з бази даних
+        // Отримання даних з бази даних за допомогою запитів yii
 //       Аналог sql запиту SELECT * FROM post;
+//        $posts = Post::find()->all();
+        // Сортування в звичайному вигляді
+//        $posts = Post::find()->orderBy(['id' => SORT_ASC])->all();
+        // Сортування в зворотному вигляді
+//        $posts = Post::find()->orderBy(['id' => SORT_DESC])->all();
+//        $posts = Post::find()->asArray()->all();
+//        $posts = Post::find()->where('id=3')->all();
+//        // Аналог
+//        $posts = Post::find()->where(['id' => 4])->all();
+        // Де лі
+//        $posts = Post::find()->where(['like', 'title', 'Дру' ])->all();
+//        $posts = Post::find()->where(['<=', 'id', 4 ])->all();
+        // Витягне усі значення, де 'author_id' => 3
+//        $posts = Post::find()->where(['author_id' => 3])->all();
+        // Витягне тільки перший запис. Краще використовувати цей варіант
+//        $posts = Post::find()->where(['author_id' => 3])->limit(1)->all();
+        // Аналог
+//        $posts = Post::find()->where(['author_id' => 3])->one();
+        // Виведе кількість записів
+//        $posts = Post::find()->where(['author_id' => 3])->count();
+        // Усі записи без умов
+//        $posts = Post::find()->count();
+//        $posts = Post::findOne(['author_id' => 1]);
+//        $posts = Post::findAll(['author_id' => 1]);
+
         $posts = Post::find()->all();
 
+        // Отримання даних з бази даних за допомогою  sql запиту
+        // Створення sql запиту
+        // Зазвичай дані будуть приходити диинамічно, а не як вже записаний рядок ..
+//        $query = "SELECT * FROM post WHERE title LIKE '%Техніки%'";
+//        $posts = Post::findBySql($query)->all();
+        // .. тому прописуємо знаечння як параметр, де %Техніки% - змінна. Безпечний запит
+//        $query = "SELECT * FROM post WHERE title LIKE :search";
+//        $posts = Post::findBySql($query, [':search' => '%Техніки%'])->all();
+
+
+        //  Рекомендується витягати дані у вигляді масиву, окільки це менш трудомісткий процес звернення до бд
 //        return $this->render('index', [
 //            'posts' => $posts,
 //        ]);
 
         // Передаємо записи у вид для відображення
         return $this->render('show', compact('posts'));
-
+//        return $this->render('show', ['posts' => $posts]);
 //        return $this->render('show');
     }
 

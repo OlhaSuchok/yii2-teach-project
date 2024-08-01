@@ -6,10 +6,27 @@
 <!--Вивід даних із бази даних-->
 <?php //debug($posts); ?>
 
+<!--Вивід обєкту-->
+<?php //foreach ($posts as $post): ?>
+<!--    <h2>--><?php //= $post->title ?><!--</h2>-->
+<!--    <p>--><?php //= $post->content ?><!--</p>-->
+<?php //endforeach; ?>
+
+<!--Якщо повертаємо значення об'єкту -->
 <?php foreach ($posts as $post): ?>
-    <h2><?= $post->title ?></h2>
-    <p><?= $post->content ?></p>
+    <h2><?= $post['title'] ?></h2>
+    <p><?= $post['content'] ?></p>
+    <p><?= $post['author_id'] ?></p>
 <?php endforeach; ?>
+
+<!--Якщо повертаємо вивід одномірного масиву -->
+<?php //if ($posts): ?>
+<!--    <h2>--><?php //= $posts->title ?><!--</h2>-->
+<!--    <p>--><?php //= $posts->content ?><!--</p>-->
+<!--    <p>--><?php //= $posts->author_id ?><!--</p>-->
+<?php //else: ?>
+<!--    <p>Пост з вказаним author_id не знайдено.</p>-->
+<?php //endif; ?>
 
 <!--Метод для передачі даних із виду у шаблон. Виводимо у шаблоні-->
 <?php //$this->beginBlock('block1'); ?>
