@@ -107,7 +107,7 @@ class PostController extends AppController
         // Усі записи без умов
 //        $posts = Post::find()->count();
 //        $posts = Post::findOne(['author_id' => 1]);
-//        $posts = Post::findAll(['author_id' => 1]);
+//        $posts = Post::findAll(['author_id' => 3]);
 
         $posts = Post::find()->all();
 

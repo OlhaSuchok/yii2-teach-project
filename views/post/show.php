@@ -17,6 +17,8 @@
     <h2><?= $post['title'] ?></h2>
     <p><?= $post['content'] ?></p>
     <p><?= $post['author_id'] ?></p>
+    <p><?= $post['published_at'] ?></p>
+    <p><?= $post['status'] ?></p>
 <?php endforeach; ?>
 
 <!--Якщо повертаємо вивід одномірного масиву -->

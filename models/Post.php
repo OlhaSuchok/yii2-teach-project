@@ -11,4 +11,17 @@ class Post extends \yii\db\ActiveRecord
 //        return 'post';
 //    }
 
+
+public function rules()
+{
+    return [
+        [['title', 'content', 'author_id', 'published_at', 'status'], 'required'],
+        [['content'], 'string'],
+        [['author_id'], 'integer'],
+        [['published_at'], 'safe'],
+        [['title'], 'string', 'max' => 255],
+        [['status'], 'string', 'max' => 10],
+    ];
+}
+
 }
