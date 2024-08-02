@@ -1,13 +1,41 @@
+<h1>Show Action / Вивід даних із бази даних</h1>
+
 <!--Варіант визначення заголовку сторінки у виді-->
 <?php //$this->title = 'Одна стаття'; ?>
 
-<!--Метод для передачі даних із виду у шаблон. Виводимо у шаблоні-->
-<?php $this->beginBlock('block1'); ?>
-<!--Тут вміст блоку-->
-<h3>Заголовок сторінки всередині блоку</h3>
-<?php $this->endBlock(); ?>
+<!--Вивід даних із бази даних-->
+<?php //debug($posts); ?>
 
-<h1>Show Action / Content basic</h1>
+<!--Вивід обєкту-->
+<?php //foreach ($posts as $post): ?>
+<!--    <h2>--><?php //= $post->title ?><!--</h2>-->
+<!--    <p>--><?php //= $post->content ?><!--</p>-->
+<?php //endforeach; ?>
+
+<!--Якщо повертаємо значення об'єкту -->
+<?php foreach ($posts as $post): ?>
+    <h2><?= $post['title'] ?></h2>
+    <p><?= $post['content'] ?></p>
+    <p><?= $post['author_id'] ?></p>
+    <p><?= $post['published_at'] ?></p>
+    <p><?= $post['status'] ?></p>
+<?php endforeach; ?>
+
+<!--Якщо повертаємо вивід одномірного масиву -->
+<?php //if ($posts): ?>
+<!--    <h2>--><?php //= $posts->title ?><!--</h2>-->
+<!--    <p>--><?php //= $posts->content ?><!--</p>-->
+<!--    <p>--><?php //= $posts->author_id ?><!--</p>-->
+<?php //else: ?>
+<!--    <p>Пост з вказаним author_id не знайдено.</p>-->
+<?php //endif; ?>
+
+<!--Метод для передачі даних із виду у шаблон. Виводимо у шаблоні-->
+<?php //$this->beginBlock('block1'); ?>
+<!--Тут вміст блоку-->
+<!--<h3>Заголовок сторінки всередині блоку</h3>-->
+<?php //$this->endBlock(); ?>
+
 
 <button class="btn btn-success" id="btn">Click me...</button>
 
