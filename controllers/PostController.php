@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 // Імпорт глобального об'єкту Yii
+use app\models\Category;
 use Yii;
 use app\models\TestForm;
 use app\models\Post;
@@ -127,9 +128,25 @@ class PostController extends AppController
 //        ]);
 
         // Передаємо записи у вид для відображення
-        return $this->render('show', compact('posts'));
+//        return $this->render('show', compact('posts'));
 //        return $this->render('show', ['posts' => $posts]);
 //        return $this->render('show');
+
+// Передача id
+        // Ліниве завантаження
+//        $cats = Category::findOne(7);
+
+        // Відкладене завантаження
+        $cats = Category::find()->where('id=4')->all();
+//        $cats = Category::find()->all();
+
+        // Жадне завантаження
+//        $cats = Category::find()->with('products')->where('id=4')->all();
+
+        // Щоб зменшити кількість sql запитів. Запит зведений до SELECT * FROM `product` WHERE `category_id` IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20), а не окремий запит для окремого id
+        $cats = Category::find()->with('products')->all();
+
+        return $this->render('show', compact('cats'));
     }
 
     public function actionTest()
