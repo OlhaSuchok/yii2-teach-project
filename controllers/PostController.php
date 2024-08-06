@@ -41,6 +41,20 @@ class PostController extends AppController
             return 'test';
         }
 
+ 
+        $message = TestForm::findOne(1);
+        debug($message);
+
+        // Ручне оновлення данних в базі 
+        // $message->email = 'my_email@ukr.net';
+        // $message->save();
+
+        // Видалення одного елементу з бази
+        // $message->delete();  
+
+        // Видалення елементів з бази за умовою 
+        // TestForm::deleteAll(['>', 'id', '4']);
+
         // Створення обєкту ActiveRecord
         // Якщо ми створюємо його за допомогою оператора new, тоді даний об'єкт буде виконувати sql запит INSERT, тобто додавати нові данні 
         // Якщо ж ми об'єкт отримали за допомогою запита із бд, наприклад методом find, тоді цей метод буде виконувати операцію UPDATE 
