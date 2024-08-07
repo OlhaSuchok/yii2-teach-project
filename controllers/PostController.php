@@ -37,13 +37,13 @@ class PostController extends AppController
         if (Yii::$app->request->isAjax) {
 //            debug($_POST);
 //            Також у Yii є спеціальний метод для розпаковки запитів. Його ми можемо використовувати як альтернативу debug
-            debug(Yii::$app->request->post());
+        //     debug(Yii::$app->request->post());
             return 'test';
         }
 
  
         $message = TestForm::findOne(1);
-        debug($message);
+        // debug($message);
 
         // Ручне оновлення данних в базі 
         // $message->email = 'my_email@ukr.net';
@@ -69,7 +69,6 @@ class PostController extends AppController
         // Збереження змісту форми
         // За замовчуванням метод save викликає метод validate
         $model->save();
-
 
         // Отримання даних форми на сервері
         // В Yii за замовчуванням діє правило, що усі атрибути у формі є не безпечними.
