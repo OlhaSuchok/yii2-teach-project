@@ -32,7 +32,7 @@ AppAsset::register($this);
             <ul class="nav nav-pills">
                 <li class="nav-item"
                     style="background-color: #a2e1fb; border-radius: 5px; padding: 10px 20px; margin-right: 12px;">
-                    <?= Html::a('Home', '/web') ?>
+                    <?= Html::a('Home', '/') ?>
                 </li>
                 <li class="nav-item"
                     style="background-color: #a2e1fb; border-radius: 5px; padding: 10px 20px; margin-right: 12px;">

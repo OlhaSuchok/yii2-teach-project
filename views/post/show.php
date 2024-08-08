@@ -15,8 +15,8 @@ use app\components\MyWidget;
 ?>
 
 <?php
-phpinfo();
-?>
+//phpinfo();
+//?>
 
 <!--Контент всередині віджету. Дає нам змогу легко маніпулювати контентом-->
 <?php MyWidget::begin() ?>

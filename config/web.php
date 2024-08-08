@@ -24,6 +24,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '8ezgzLok3932a2YyEczLbC0HwMC-UZMq',
+//            'baseUrl' => '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -52,12 +53,12 @@ $config = [
         ],
         'db' => $db,
 //        Розкоментовано urlManager для кращого відображення навігації по додатку
-//        'urlManager' => [
-//            'enablePrettyUrl' => true,
-//            'showScriptName' => false,
-//            'rules' => [
-//            ],
-//        ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+            ],
+        ],
 
     ],
     'params' => $params,
