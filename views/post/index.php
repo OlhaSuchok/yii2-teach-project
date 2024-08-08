@@ -2,6 +2,8 @@
 
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
+use yii\jui\DatePicker;
+
 
 ?>
 
@@ -38,6 +40,11 @@ $form = ActiveForm::begin(['options' => ['id' => 'testForm']]);
 <?php //= $form->field($model, 'name')->label("Ім'я") ?>
 <?= $form->field($model, 'name')->input('text') ?>
 <?= $form->field($model, 'email')->input('email') ?>
+
+<?= DatePicker::widget([
+    'name' => 'attributeName',
+]) ?>
+
 <?= $form->field($model, 'text')->textarea(['rows' => 5]) ?>
 <?= Html::submitButton('Submit', ['class' => 'btn btn-success']) ?>
 <?php
