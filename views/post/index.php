@@ -28,7 +28,6 @@ use yii\helpers\Html;
     </div>
 <?php endif; ?>
 
-
 <!--Створення форми-->
 <?php
 //$form = ActiveForm::begin(['options' => ['class' => 'form-horizontal']]);
