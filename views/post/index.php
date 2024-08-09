@@ -43,3 +43,19 @@ $form = ActiveForm::begin(['options' => ['id' => 'testForm']]);
 <?php
 ActiveForm::end();
 ?>
+
+
+<h2>Вивід створених повідомлень з бази даних</h2>
+
+<!--Вивід створених повідомлень -->
+<?php foreach ($messages as $message): ?>
+<ul>
+    <li>
+        <?php echo $message->id; ?><br>
+        <?php echo $message->name; ?><br>
+        <?php echo $message->email; ?><br>
+        <?php echo $message->text; ?><br>
+        <?php echo $message->created_at; ?>
+    </li>
+</ul>
+<?php endforeach; ?>

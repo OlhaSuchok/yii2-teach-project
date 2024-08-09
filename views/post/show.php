@@ -14,6 +14,10 @@ use app\components\MyWidget;
 // echo MyWidget::widget();
 ?>
 
+<?php
+phpinfo();
+?>
+
 <!--Контент всередині віджету. Дає нам змогу легко маніпулювати контентом-->
 <?php MyWidget::begin() ?>
     <h1>прииивііт, світ!</h1>

@@ -42,7 +42,8 @@ class PostController extends AppController
         }
 
  
-        $message = TestForm::findOne(1);
+//        $message = TestForm::findOne(1);
+        $messages = TestForm::find()->all();
         // debug($message);
 
         // Ручне оновлення данних в базі 
@@ -59,7 +60,7 @@ class PostController extends AppController
         // Якщо ми створюємо його за допомогою оператора new, тоді даний об'єкт буде виконувати sql запит INSERT, тобто додавати нові данні 
         // Якщо ж ми об'єкт отримали за допомогою запита із бд, наприклад методом find, тоді цей метод буде виконувати операцію UPDATE 
         // Логічніше буде назвати $post, $message, в залежності від того, з якою таблицею працюємо 
-        $model = new TestForm();
+       $model = new TestForm();
 
         // Додавання даних до бази вручну ========================================
         // $model->name = 'Автор повідомлення 111';
@@ -116,7 +117,7 @@ if ($model->load(Yii::$app->request->post())) {
                 }
 
 
-        return $this->render('index', compact('model'));
+        return $this->render('index', compact('model', 'messages'));
     }
 
     // Екшн для виводу конкретних постів
@@ -193,6 +194,7 @@ if ($model->load(Yii::$app->request->post())) {
         $cats = Category::find()->with('products')->all();
 
         return $this->render('show', compact('cats'));
+
     }
 
     public function actionTest()
