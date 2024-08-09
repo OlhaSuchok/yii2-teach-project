@@ -1,24 +1,25 @@
 <?php
 
-use app\models\Articles;
+use app\models\Product;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use app\models\ProductSearch;
 
 /** @var yii\web\View $this */
-/** @var app\models\ArticlesSearch $searchModel */
+/** @var app\models\ProductSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Articles';
+$this->title = 'Products';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="articles-index">
+<div class="product-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Articles', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -30,12 +31,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'description:ntext',
+            'price',
+            [
+                'filter' => ProductSearch::getAllCategories(),
+                'attribute' => 'category_id',
+                'value' => function (Product $model) {
+                    return $model->category->name;
+                }
+            ],
             'created_at',
             'updated_at',
-            'status',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Articles $model, $key, $index, $column) {
+                'urlCreator' => function ($action, Product $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }
             ],
